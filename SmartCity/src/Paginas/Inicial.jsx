@@ -1,7 +1,7 @@
 import estilos from './Inicial.module.css'
-import {Cabecalho} from '../componentes/Cabecalho'
-import {Lateral} from '../componentes/Lateral'
-import {Lista} from './Lista'
+import {Cabecalho} from '../Components/Cabecalho'
+import {Lateral} from '../Components/Lateral'
+
 import { Outlet } from 'react-router-dom'
 
 export function Inicial() {

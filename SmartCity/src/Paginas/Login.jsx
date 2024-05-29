@@ -1,8 +1,8 @@
 import React from "react";
-import axios from axios;
+import axios from 'axios';
 import  estilos from './Login.module.css';
 import {useForm} from "react-hook-form";
-import {z} from zod;
+import {z} from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
  
@@ -12,14 +12,14 @@ const schemaLogin = z.object({
             .min(5,"O minimo é 5 caracteres")
             .max(20,"O maximo é de 20 caracteres"),
     senha:z.string()
-            .min(8,"O minimo é 8 caracteres")
+            .min(2,"O minimo é 8 caracteres")
             .max(20,"O maximo é de 20 caracteres"),
 });
  
  
 export function Login(){
   const navigate = useNavigate();
-  const {register, handleSubmit, formState:{error}} = useForm({
+  const {register, handleSubmit, formState:{errors}} = useForm({
     resolver:zodResolver(schemaLogin)
   });
  
@@ -37,8 +37,8 @@ export function Login(){
         console.log("Login bem sucedido");
         navigate('/inicial');
     }
-    catch(error){
-        console.log('Erro na autentificacao',error);
+    catch(errors){
+        console.log('Erro na autentificacao',errors);
     }
   }
   return(
@@ -46,22 +46,24 @@ export function Login(){
         <p className={estilos.titulo}>Login</p>
 
         <form className={estilos.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
-            <input className={estilos.campo}
+            <input  
                 {...register('usuario')}
-                placeholder="Usuario"
+                    className={estilos.campo}
+                    placeholder="Usuário"
             />
-            {error.usuario&&(
-                <p>{error.usuario.message}</p>
+                {errors.usuario && (
+                <p>{errors.usuario.message}</p>
             )}
-            <input className={estilos.campo}
+            <input
                 {...register('senha')}
-                type="password"
-                placeholder="senha"
+                    type="password"
+                    className={estilos.campo}
+                    placeholder="Senha"
             />
-            {error.senha&&(
-                error.senha.message
+                {errors.senha && (
+                <p>{errors.senha.message}</p>
             )}
-            <button className={estilos.botao}>Entrar</button>
+                <button className={estilos.botao} type='submit'>Entrar</button>
         </form>
    </div>
   )
