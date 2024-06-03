@@ -1,0 +1,44 @@
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px);
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cinza-escuro);
+}
+
+.titulo {
+    color: var(--roxo-escuro);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    background-color: #90e0ef;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.campo {
+    background-color:white;
+    margin-bottom: 10px;
+    padding: 9px;
+    border-radius: 6px;
+}
+
+.botao {
+    background-color:white;
+    color: var(--cinza-claro);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.mensagem {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: -6px;
+    margin-bottom: 1rem;  
+    color: red; 
+}

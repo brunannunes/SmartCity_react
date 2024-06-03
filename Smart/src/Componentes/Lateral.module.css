@@ -1,5 +1,6 @@
 .conteiner{
     background-color: #051e3a;
+    
 }
 
 .imagemCabecalho {
@@ -28,7 +29,7 @@ strong{
 }
 
 .conteiner section{
-    margin: 2rem;
+    margin: 1rem;
     padding: 2rem;
 }
 

@@ -1,0 +1,15 @@
+.conteiner {
+    background-color: #005481;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    transition: transform .25s;
+}
+
+.conteiner:hover {
+    transform: scale(1.025);
+    box-shadow: 0px 0px 10px var(--azul-escuro);
+}

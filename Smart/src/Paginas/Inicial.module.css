@@ -1,4 +1,4 @@
-.gridConteiner{
+.gridConteiner {
     display: grid;
     height: 100vh;
     gap: 10px;
@@ -8,20 +8,16 @@
     grid-template-areas: 
         'cabecalho cabecalho'
         'lateral conteudo';
-
 }
 
-header{
-    grid-area: cabecalho;
-    
+header {
+    grid-area: cabecalho; 
 }
 
-aside{
-    grid-area: lateral;
-    
+aside {
+    grid-area: lateral; 
 }
 
-main{
+main {
     grid-area: conteudo;
 }
-
