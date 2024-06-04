@@ -21,7 +21,7 @@ export default function Mapa({ pontos }) {
 
     return (
         <MapContainer
-            style={{ height: '500px', width: '100%' }}
+            style={{ height: '100%', width: '100%' }}
             center={centro}
             zoom={zoomLevel}
             whenCreated={(map) => {

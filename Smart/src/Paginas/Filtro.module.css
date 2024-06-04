@@ -1,14 +1,57 @@
-.conteiner {
+.container{
+    display:flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: white
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(54, 125, 173);
+    padding: 120px;
+    border-radius: 10px;
+    
+}
+
+.formulario label{
+    color: white;
+}
+
+.campo{
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 390px;
+    border-radius: 10px;
+    
+}
+
+.campoCheckbox{
+    color: white;
+    
+}
+
+.botao{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* .conteiner {
     display: flex;
     height: auto;
     padding:10px;  
     background-color: var(--cinza-claro);
     flex-direction: column;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 70px;
   
     
 }
+
 
 h1 {
     color: var(--roxo-claro);
@@ -21,12 +64,17 @@ h1 {
     color: var(--cinza-claro);
     padding: 10px;
     border-radius: 8px;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 .formulario {
     display: flex;
     flex-direction: column;
-    background-color: rgb(17, 87, 116);
+    background-color: rgb(31, 107, 140);
     padding: 30px;
     border-radius: 10px;
 }
+
+.formulario label{
+    color: white;
+    
+} */

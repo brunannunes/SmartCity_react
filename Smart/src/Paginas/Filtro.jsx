@@ -49,16 +49,16 @@ export function Filtro() {
             <form onSubmit={handleSubmit} className={estilos.formulario}>
 
                     <label>Responsável</label>
-                    <input type="text" name="responsavel" value={filters.responsavel} onChange={handleChange} />
+                    <input className={estilos.campo} type="text" name="responsavel" value={filters.responsavel} onChange={handleChange} />
 
-                    <label>Status Operacional *</label>
-                    <input type="checkbox" name="status_operacional" checked={filters.status_operacional} onChange={handleChange} />
+                    <label className={estilos.campoCheckbox}  >Status Operacional *</label>
+                    <input  type="checkbox" name="status_operacional" checked={filters.status_operacional} onChange={handleChange} />
 
                     <label>Tipo</label>
-                    <input type="text" name="tipo" value={filters.tipo} onChange={handleChange} />
+                    <input className={estilos.campo} type="text" name="tipo" value={filters.tipo} onChange={handleChange} />
 
                     <label>Localização</label>
-                    <input type="text" name="localizacao" value={filters.localizacao} onChange={handleChange} />
+                    <input className={estilos.campo} type="text" name="localizacao" value={filters.localizacao} onChange={handleChange} />
 
                 <button className={estilos.botao} type="submit">Filtrar</button>
             </form>

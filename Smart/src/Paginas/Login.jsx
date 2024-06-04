@@ -1,15 +1,13 @@
-import React from 'react';
+import styles from './Login.module.css'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
-
-import estilos from './Login.module.css';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useNavigate } from 'react-router-dom';
 
 const schemaLogin = z.object({
-    usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(20, 'Máximo de 20 caracteres'),
-    senha: z.string().min(2, 'Informe 2 caracteres').max(8, 'Máximo de 8 caracteres'),
+    usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(20, 'Máximo de 10 caracteres'),
+    senha: z.string().min(3, 'Informe 8 caracteres').max(8, 'Máximo de 8 caracteres'),
 });
 
 export function Login() {
@@ -37,31 +35,33 @@ export function Login() {
     }
 
     return (
-        <div className={estilos.conteiner}>
-            <p className={estilos.titulo}>Login</p>
-
-            <form className={estilos.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
-                <input
-                    {...register('usuario')}
-                    className={estilos.campo}
-                    placeholder="Usuário"
-                />
-                {errors.usuario && (
-                    <p className={estilos.mensagem}>{errors.usuario.message}</p>
-                )}
-
-                <input
-                    {...register('senha')}
-                    type="password"
-                    className={estilos.campo}
-                    placeholder="Senha"
-                />
-                {errors.senha && (
-                    <p className={estilos.mensagem}>{errors.senha.message}</p>
-                )}
-
-                <button className={estilos.botao}>Entrar</button>
-            </form>
+        <div className={styles.general_container}>
+            <div className={styles.container}>
+                <h1>Login</h1>
+                <form className={styles.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
+                    <input
+                        {...register('usuario')}
+                        className={styles.campo}
+                        placeholder="Usuário"
+                    />
+                    {errors.usuario && (
+                        <p>{errors.usuario.message}</p>
+                    )}
+                    <input
+                        {...register('senha')}
+                        type="password"
+                        className={styles.campo}
+                        placeholder="Senha"
+                    />
+                    {errors.senha && (
+                        <p>{errors.senha.message}</p>
+                    )}
+                    <button className={styles.botao} type='submit'>Entrar</button>
+                </form>
+                <div className={styles.container_cadastro}>
+                    <p> Não tem uma conta?</p> <Link to='cadastro'> Cadastre-se! </Link>
+                </div>
+            </div>
         </div>
-    );
+    )
 }

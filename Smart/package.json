@@ -1,5 +1,5 @@
 {
-  "name": "smart",
+  "name": "projeto-integrador-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,22 +11,16 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",
-<<<<<<< HEAD:Smart/package.json
+    "@phosphor-icons/react": "^2.1.5",
     "axios": "^1.7.2",
-    "leaflet": "^1.9.4",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.5",
     "react-leaflet": "^4.2.1",
-=======
-    "@phosphor-icons/react": "^2.1.5",
-    "axios": "^1.7.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-hook": "^0.0.1",
-    "react-hook-form": "^7.51.5",
->>>>>>> 1f5fa159489b5f9310ef6c96d860a0e55cdfefd7:SmartCity/package.json
     "react-router-dom": "^6.23.1",
+    "sort-by": "^1.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
