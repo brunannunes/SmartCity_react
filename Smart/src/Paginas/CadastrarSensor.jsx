@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 const schemaSensor = z.object({
     tipo: z.string().nonempty('Tipo é obrigatório'),
-    mac_address: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
+    mac_address: z.string().max(20, 'Máximo de 20 caracteres').nullable(true),
     latitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
     longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
     localizacao: z.string().max(100, 'Máximo de 100 caracteres'),

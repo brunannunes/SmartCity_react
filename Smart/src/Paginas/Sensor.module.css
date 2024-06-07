@@ -16,3 +16,23 @@
     padding: 6px 0;
     text-align: justify;
 }
+
+.conteiner button{
+    margin-top:10px;
+    width: 100px;
+    height: 28px;
+    background-color: #7399c4;
+    border: none;
+    border-radius: 10px; 
+    transition: color .5s backgroud-color .5s;
+}
+
+.conteiner button:hover{
+    background-color: white;
+    color: black;
+}
+
+.conteiner a{
+    color: black;
+    
+}

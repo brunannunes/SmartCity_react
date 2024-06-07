@@ -42,11 +42,7 @@ export function Lateral(){
                     to='/inicial/filtro'
                 >Filtros
                 </Link>
-                <Link
-                    className={estilos.botao}
-                    to='/inicial/altSensor'
-                    >Alterar sensor
-                </Link>
+    
             </section>
         </aside>
     )

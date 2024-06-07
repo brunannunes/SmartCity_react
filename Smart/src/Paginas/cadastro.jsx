@@ -1,67 +1,103 @@
-import styles from './Login.module.css'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import estilos from './Cadastro.module.css';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-const schemaLogin = z.object({
-    usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(20, 'Máximo de 10 caracteres'),
-    senha: z.string().min(3, 'Informe 8 caracteres').max(8, 'Máximo de 8 caracteres'),
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+ 
+const schemaCadastro = z.object({
+  email: z.string()
+    .min(5, 'Por favor, insira pelo menos 5 caracteres')
+    .max(100, "Por favor, insira até 100 caracteres"),
+  username: z.string()
+    .min(5, 'Por favor, insira pelo menos 5 caracteres')
+    .max(100, "Por favor, insira até 100 caracteres"),
+  password: z.string()
+    .min(2, 'Por favor, insira pelo menos 6 caracteres')
+    .max(100, "Por favor, insira até 100 caracteres")
 });
-
+ 
 export function Cadastro() {
-    const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: zodResolver(schemaLogin)
-    });
-
-    async function obterDadosFormulario(data) {
-        try {
-            const response = await axios.post('http://127.0.0.1:8000/api/token', {
-                username: data.usuario,
-                password: data.senha
-            });
-
-            const { access, refresh } = response.data;
-            localStorage.setItem('access_token', access);
-            localStorage.setItem('refresh_token', refresh);
-
-            console.log('Login bem-sucedido!');
-            navigate('/inicial'); // Redireciona para a página de sensores
-        } catch (error) {
-            console.error('Erro de autenticação', error);
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: zodResolver(schemaCadastro)
+  });
+ 
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+ 
+  async function obterDadosFormulario(data) {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/create_user', data, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         }
+      });
+ 
+      alert('Usuário cadastrado com sucesso!');
+      navigate('/inicial'); // Redireciona para a página inicial após o cadastro
+    } catch (error) {
+      console.error('Erro no cadastro do usuário', error);
     }
-
-    return (
-        <div className={styles.general_container}>
-            <div className={styles.container}>
-                <h1>Login</h1>
-                <form className={styles.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
-                    <input
-                        {...register('usuario')}
-                        className={styles.campo}
-                        placeholder="Usuário"
-                    />
-                    {errors.usuario && (
-                        <p>{errors.usuario.message}</p>
-                    )}
-                    <input
-                        {...register('senha')}
-                        type="password"
-                        className={styles.campo}
-                        placeholder="Senha"
-                    />
-                    {errors.senha && (
-                        <p>{errors.senha.message}</p>
-                    )}
-                    <button className={styles.botao} type='submit'>Entrar</button>
-                </form>
-                <div className={styles.container_cadastro}>
-                    <p> Não tem uma conta?</p> <Link to='cadastro'> Cadastre-se! </Link>
-                </div>
-            </div>
+  }
+ 
+  return (
+    <div className={estilos.container}>
+        <h1 className={estilos.titulo}>Cadastro</h1>
+      <form
+        className={estilos.form}
+        onSubmit={handleSubmit(obterDadosFormulario)}
+      >
+        
+ 
+        <div >
+          <input className={estilos.formGroup}
+            placeholder='E-mail'
+            {...register('email')}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          {errors.email && (
+            <p className={estilos.messageErro}>{errors.email.message}</p>
+          )}
         </div>
-    )
+ 
+        <div >
+          <input className={estilos.formGroup}
+            placeholder='usuario'
+            {...register('username')}
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+          {errors.username && (
+            <p className={estilos.messageErro}>{errors.username.message}</p>
+          )}
+        </div>
+ 
+        <div >
+          <input className={estilos.formGroup}
+            placeholder='senha'
+            {...register('password')}
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          {errors.password && (
+            <p className={estilos.messageErro}>{errors.password.message}</p>
+          )}
+        </div>
+ 
+        <button className={estilos.button} type="submit">Entrar</button>
+ 
+       
+      </form>
+    </div>
+  );
 }
+ 

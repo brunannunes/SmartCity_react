@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+
 const schemaLogin = z.object({
     usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(20, 'Máximo de 10 caracteres'),
     senha: z.string().min(3, 'Informe 8 caracteres').max(8, 'Máximo de 8 caracteres'),

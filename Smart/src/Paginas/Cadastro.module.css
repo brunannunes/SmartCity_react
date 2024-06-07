@@ -1,5 +1,4 @@
 
-
 .container {
     display: flex;
     flex-direction: column;
@@ -13,7 +12,7 @@
     margin-bottom: 25px;
 }
 
-.formulario {
+.form {
     display: flex;
     flex-direction: column;
     background-color: #153e7c;
@@ -21,7 +20,7 @@
     border-radius: 10px;
 }
 
-.campo {
+.formGroup {
     background-color:white;
     margin-bottom: 10px;
     padding: 9px;
@@ -29,7 +28,9 @@
     border: none;
 }
 
-.botao {
+
+
+.button {
     background-color:white;
     color: var(--cinza-claro);
     padding: 10px;

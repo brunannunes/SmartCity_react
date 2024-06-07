@@ -21,7 +21,7 @@ import { AlterarSensor } from '../Paginas/AlterarSensor';
             <Route path='cadsensor' element={ <CadastrarSensor /> } />
             <Route path='localizacao' element={ <Localizacao /> } />
             <Route path='filtro' element={<Filtro />} /> 
-            <Route path='altSensor' element={<AlterarSensor/>} />
+            <Route path="alterar-sensor/:id" element={<AlterarSensor />} />
             
         </Route>
 

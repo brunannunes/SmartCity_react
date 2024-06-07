@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import estilos from './Sensor.module.css';
 import {Card} from '../Componentes/Card'
+import { Link } from 'react-router-dom';
 
 export function Sensor() {
     const [sensores, setSensores] = useState([]);
@@ -45,6 +46,7 @@ export function Sensor() {
                     <p><strong>Responsável:</strong> {sensor.responsavel}</p>
                     <p><strong>Longitude:</strong> {sensor.longitude}</p>
                     <p><strong>Latitude:</strong> {sensor.latitude}</p>
+                    <button><strong><Link to={`alterar-sensor/${sensor.id}`}>Alterar</Link></strong></button>
                 </Card>
             ))}
         </div>
